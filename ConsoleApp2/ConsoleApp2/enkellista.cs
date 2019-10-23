@@ -1,25 +1,27 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ConsoleApp2
 {
-    class enkellista
+    class Putta
     {
         public class Node
         {
             public int value;
-            public Node next;
-            public Node(int d) {value = d; next = null; }
+            public Node Next;
+            public Node(int d) { value = d; Next = null; }
+
+            public string data { get; internal set; }
         }
         Node head;
-
+        public int New_Data { get; }
 
         public void AddFirst(int new_data)
         {
             Node new_node = new Node(new_data);
 
-            new_node.next = head;
+            new_node.Next = head;
 
             head = new_node;
         }
@@ -27,79 +29,116 @@ namespace ConsoleApp2
         {
             Node new_node = new Node(new_data);
 
-            if(head == null)
+            if (head == null)
             {
                 head = new Node(new_data);
                 return;
             }
 
-            new_node.next = null;
+            new_node.Next = null;
 
             Node last = head;
-            while (last.next != null)
-                last = last.next;
+            while (last.Next != null)
+                last = last.Next;
 
-            last.next = new_node;
+            last.Next = new_node;
             return;
         }
-        public class Node
-        {
-            public int data;
-            public Node next;
-        };
 
-        public void removeFirst(Node head)
+
+         static Node RemoveFirst(int new_data, Node head)
         {
             if (head == null)
                 return null;
 
             Node temp = head;
-            head = head.next;
+            head = head.Next;
 
             return head;
         }
-        public push(Node head_ref, int new_data)
+        public static Node Push(int new_data, Node head_ref)
         {
-            Node new_node = new Node();
-            new_node.data = new_data;
-            new_node.next = (head_ref);
+            Node new_node = new Node(new_data);
+            new_node.value = new_data;
+            new_node.Next = (head_ref);
             (head_ref) = new_node;
             return head_ref;
         }
 
         public static void Main(String[] args)
         {
-            Node head = null;
+            Node head_ref = null;
 
-            head = push(head, 10);
-            head = push(head, 11);
-            head = push(head, 12);
-            head = push(head, 13);
-            head = push(head, 14);
-            head = push(head, 15);
+            head_ref = Push(head_ref, 1);
+            head_ref = Push(head_ref, 2);
+            head_ref = Push(head_ref, 4);
+            head_ref = Push(head_ref, 5);
+            head_ref = Push(head_ref, 6);
 
-            head = removeFirstNode(head);
-            for (Node temp = head; != null; temp = temp.next)
-                Console.Write(temp.data + "")
-
+            head_ref = RemoveFirst(head_ref);
+            for (Node temp = head_ref; temp != null; temp = temp.Next)
+                Console.Write(temp.data + " ");
+            head_ref = Removelast(head_ref);
+            for (Node temp = head_ref; temp != null; temp = temp.Next)
+                Console.Write(temp.data + " ");
         }
 
-        private static Node push(Node head, int v)
+        private static Node RemoveFirst(Node head_ref)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveLast()
+        private static Node Push(Node head_ref, int v)
         {
+            throw new NotImplementedException();
+        }
 
+        static Node Removelast(Node head)
+        {
+            if (head == null)
+                return null;
+            if(head.Next == null)
+            {
+                return null;
+            }
+            Node second_last = head;
+            while (second_last.Next.Next != null)
+                second_last = second_last.Next;
+
+            second_last.Next = null;
+
+            return head;
+        }
+
+        static Node push(Node head_ref, int new_data)
+        {
+            Node new_node = new Node(new_data);
+            new_node.value = new_data;
+            new_node.Next = (head_ref);
+            (head_ref) = new_node;
+            return head_ref;
         }
         public void RemoveValue()
         {
 
         }
-        public void FindValue()
+        public bool search(Node head, int value)
         {
+            Node current = head;
+            while (current != null)
+            {
+                if (current = value)
+                    return true;
+                current = current.Next;
+            }
+            return false;
+        }
+                
 
+           
+            
+
+            
         }
         public void PrintList()
         {
@@ -107,3 +146,4 @@ namespace ConsoleApp2
         }
     }
 }
+
