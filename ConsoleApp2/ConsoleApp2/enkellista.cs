@@ -4,17 +4,19 @@ using System.Text;
 
 namespace ConsoleApp2
 {
-    class Putta
+    class enkellista
     {
-        public class Node
+        class Node
         {
             public int value;
             public Node Next;
             public Node(int d) { value = d; Next = null; }
-
+            
             public string data { get; internal set; }
         }
         Node head;
+        
+
         public int New_Data { get; }
 
         public void AddFirst(int new_data)
@@ -46,7 +48,7 @@ namespace ConsoleApp2
         }
 
 
-         static Node RemoveFirst(int new_data, Node head)
+        static Node RemoveFirst(int new_data, Node head)
         {
             if (head == null)
                 return null;
@@ -97,7 +99,7 @@ namespace ConsoleApp2
         {
             if (head == null)
                 return null;
-            if(head.Next == null)
+            if (head.Next == null)
             {
                 return null;
             }
@@ -122,28 +124,40 @@ namespace ConsoleApp2
         {
 
         }
-        public bool search(Node head, int value)
+        public bool search(int value)
         {
             Node current = head;
             while (current != null)
             {
-                if (current = value)
+                if (current.value == value)
                     return true;
                 current = current.Next;
             }
             return false;
         }
-                
 
-           
-            
-
-            
-        }
-        public void PrintList()
+        public int FindValue(int value)
         {
+            Node current = head;
 
+            if (current.value == value)
+            {
+                return current.value;
+            }
+            return 0;
         }
+
+        public void PrintList(int value)
+        {
+            Node current = head;
+            current = current.Next;
+
+            
+        }
+
+
+
+
     }
 }
 
