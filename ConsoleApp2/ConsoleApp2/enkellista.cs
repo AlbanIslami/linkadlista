@@ -34,6 +34,7 @@ namespace ConsoleApp2
             if (head == null)
             {
                 head = new Node(new_data);
+                
                 return;
             }
 
@@ -120,9 +121,17 @@ namespace ConsoleApp2
             (head_ref) = new_node;
             return head_ref;
         }
-        public void RemoveValue()
+        public void RemoveValue(int new_data)
         {
-
+            if (Node head == null)
+                reutrn;
+            if(current.next == 0)
+            {
+                Node head = current.next;
+                return;
+            }   
+                
+              
         }
         public bool search(int value)
         {
@@ -150,9 +159,11 @@ namespace ConsoleApp2
         public void PrintList(int value)
         {
             Node current = head;
-            current = current.Next;
-
-            
+            while(current != null)
+            {
+                Console.WriteLine(current.data);
+                current = current.Next;
+            } 
         }
 
 
