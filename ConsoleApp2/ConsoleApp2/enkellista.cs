@@ -74,10 +74,8 @@ namespace ConsoleApp2
 
             head_ref = Push(head_ref, 1);
             head_ref = Push(head_ref, 2);
-            head_ref = Push(head_ref, 4);
-            head_ref = Push(head_ref, 5);
-            head_ref = Push(head_ref, 6);
-
+            head_ref = Push(head_ref, 3);
+         
             head_ref = RemoveFirst(head_ref);
             for (Node temp = head_ref; temp != null; temp = temp.Next)
                 Console.Write(temp.data + " ");
@@ -165,10 +163,6 @@ namespace ConsoleApp2
                 current = current.Next;
             } 
         }
-
-
-
-
     }
 }
 
